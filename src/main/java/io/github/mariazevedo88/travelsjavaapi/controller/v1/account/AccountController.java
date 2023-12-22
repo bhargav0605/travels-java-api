@@ -9,6 +9,8 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -46,6 +48,7 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/api-travels/v1/accounts")
 public class AccountController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(AccountController.class);
 	AccountService accountService;
 	
 	@Autowired
@@ -94,7 +97,8 @@ public class AccountController {
 		
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.CREATED+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.CREATED);
 	}
 	

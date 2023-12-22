@@ -3,19 +3,16 @@ package io.github.mariazevedo88.travelsjavaapi.dto.model.account;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
 
 import io.github.mariazevedo88.travelsjavaapi.model.account.Account;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
