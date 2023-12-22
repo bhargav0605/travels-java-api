@@ -11,14 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.*;
 import org.modelmapper.ModelMapper;
 
 import io.github.mariazevedo88.travelsjavaapi.dto.model.user.UserAccountDTO;
 import io.github.mariazevedo88.travelsjavaapi.model.account.Account;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Class that implements an UserAccount entity - to represents
@@ -30,6 +27,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users_accounts")

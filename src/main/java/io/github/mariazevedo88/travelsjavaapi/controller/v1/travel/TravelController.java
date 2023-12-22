@@ -12,6 +12,9 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import javax.validation.Valid;
 
+import io.github.mariazevedo88.travelsjavaapi.controller.v1.statistic.StatisticController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -52,11 +55,12 @@ import lombok.extern.log4j.Log4j2;
  * @author Mariana Azevedo
  * @since 08/09/2019
  */
-@Log4j2
+//@Log4j2
 @RestController
 @RequestMapping("/api-travels/v1/travels")
 public class TravelController {
-	
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(TravelController.class);
 	TravelService travelService;
 	
 	@Autowired
@@ -127,7 +131,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.CREATED+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.CREATED);
 	}
 	
@@ -199,7 +204,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 
@@ -255,7 +261,7 @@ public class TravelController {
 			try {
 				createSelfLinkInCollections(apiVersion, apiKey, dto);
 			} catch (TravelNotFoundException e) {
-				log.error("There are no travels registered between startDate= {} and endDate= {}", startDate, endDate);
+				LOGGER.error("There are no travels registered between startDate= {} and endDate= {}", startDate, endDate);
 			}
 		});
 		
@@ -264,7 +270,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 
@@ -311,7 +318,7 @@ public class TravelController {
 			try {
 				createSelfLinkInCollections(apiVersion, apiKey, dto);
 			} catch (TravelNotFoundException e) {
-				log.error("There are no travels registered with the orderNumber= {}", travelOrderNumber);
+				LOGGER.error("There are no travels registered with the orderNumber= {}", travelOrderNumber);
 			}
 		});
 		
@@ -320,7 +327,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 	
@@ -366,7 +374,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 	
@@ -408,7 +417,8 @@ public class TravelController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.NO_CONTENT+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.NO_CONTENT);
 	}
 	

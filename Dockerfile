@@ -8,4 +8,6 @@ RUN mvn clean install -DskipTests
 
 FROM adoptopenjdk/openjdk11:jre-11.0.9_11-alpine
 WORKDIR /opt/app
-COPY --from=stage1 /opt/app/*.jar /opt/app
+COPY --from=stage1 /opt/app/target/*.jar /opt/app/app.jar
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]

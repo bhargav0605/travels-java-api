@@ -2,6 +2,9 @@ package io.github.mariazevedo88.travelsjavaapi.controller.v1.security;
 
 import javax.validation.Valid;
 
+import io.github.mariazevedo88.travelsjavaapi.controller.v1.account.AccountController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +39,8 @@ import io.github.mariazevedo88.travelsjavaapi.util.security.JwtTokenUtil;
 @RestController
 @RequestMapping("/api-travels/v1/auth")
 public class AuthenticationController {
-	
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationController.class);
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -89,7 +93,8 @@ public class AuthenticationController {
 		
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 

@@ -11,14 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.*;
 import org.modelmapper.ModelMapper;
 
 import io.github.mariazevedo88.travelsjavaapi.dto.model.user.UserDTO;
 import io.github.mariazevedo88.travelsjavaapi.enumeration.RoleEnum;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Class that implements an User entity in the API.
@@ -31,6 +28,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Table(name = "users")
 public class User implements Serializable {
 

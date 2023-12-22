@@ -3,10 +3,7 @@ package io.github.mariazevedo88.travelsjavaapi.dto.model.security;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * Class that implements JWT Authentication data transfer object (DTO)
@@ -18,6 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class JwtUserDTO {
 	
 	@NotNull(message = "Enter an email")

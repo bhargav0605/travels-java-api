@@ -43,7 +43,7 @@ import lombok.extern.log4j.Log4j2;
  * @author Mariana Azevedo
  * @since 31/10/2020
  */
-@Log4j2
+//@Log4j2
 @RestController
 @RequestMapping("/api-travels/v1/accounts")
 public class AccountController {
@@ -145,7 +145,8 @@ public class AccountController {
 			try {
 				createSelfLinkInCollections(apiVersion, apiKey, dto);
 			} catch (AccountNotFoundException e) {
-				log.error("There are no accounts registered with the accountNumber= {}", accountNumber);
+//				log.error("There are no accounts registered with the accountNumber= {}", accountNumber);
+				LOGGER.error("There are no accounts registered with the accountNumber= {}", accountNumber);
 			}
 		});
 		
@@ -154,7 +155,8 @@ public class AccountController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 	
@@ -200,7 +202,7 @@ public class AccountController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+		LOGGER.info("Response Code: "+HttpStatus.OK+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.OK);
 	}
 	

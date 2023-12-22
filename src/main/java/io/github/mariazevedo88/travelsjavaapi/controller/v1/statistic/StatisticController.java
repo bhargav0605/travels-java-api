@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
+import io.github.mariazevedo88.travelsjavaapi.controller.v1.account.AccountController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -34,7 +37,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api-travels/v1/statistics")
 public class StatisticController {
-	
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(StatisticController.class);
 	private StatisticService statisticService;
 	
 	private TravelService travelService;
@@ -83,7 +87,8 @@ public class StatisticController {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
 		headers.add(TravelsApiUtil.HEADER_API_KEY, apiKey);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.CREATED+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.CREATED);
 	}
 

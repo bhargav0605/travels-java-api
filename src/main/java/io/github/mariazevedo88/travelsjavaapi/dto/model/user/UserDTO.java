@@ -4,17 +4,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
 
 import io.github.mariazevedo88.travelsjavaapi.model.user.User;
 import io.github.mariazevedo88.travelsjavaapi.util.security.BcryptUtil;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Class that implements User data transfer object (DTO)
@@ -25,6 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @EqualsAndHashCode(callSuper = false)
 public class UserDTO extends RepresentationModel<UserDTO> {
 	

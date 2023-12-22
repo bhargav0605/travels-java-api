@@ -2,16 +2,12 @@ package io.github.mariazevedo88.travelsjavaapi.dto.model.user;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 import io.github.mariazevedo88.travelsjavaapi.model.account.Account;
 import io.github.mariazevedo88.travelsjavaapi.model.user.User;
 import io.github.mariazevedo88.travelsjavaapi.model.user.UserAccount;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Class that implements User Account data transfer object (DTO)
@@ -23,6 +19,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @EqualsAndHashCode(callSuper = false)
 public class UserAccountDTO extends RepresentationModel<UserAccountDTO>{
 

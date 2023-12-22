@@ -4,12 +4,8 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
-
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * Class that implements Statistic data transfer object (DTO)
@@ -19,6 +15,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class StatisticDTO extends RepresentationModel<StatisticDTO> {

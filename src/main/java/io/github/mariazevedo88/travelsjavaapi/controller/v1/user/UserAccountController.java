@@ -2,6 +2,9 @@ package io.github.mariazevedo88.travelsjavaapi.controller.v1.user;
 
 import javax.validation.Valid;
 
+import io.github.mariazevedo88.travelsjavaapi.controller.v1.statistic.StatisticController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
@@ -33,6 +36,8 @@ import io.github.mariazevedo88.travelsjavaapi.util.TravelsApiUtil;
 @RestController
 @RequestMapping("/api-travels/v1/users-accounts")
 public class UserAccountController {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserAccountController.class);
 
 	@Autowired
 	private UserAccountService service;
@@ -86,7 +91,8 @@ public class UserAccountController {
 		
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
 		headers.add(TravelsApiUtil.HEADER_TRAVELS_API_VERSION, apiVersion);
-		
+
+		LOGGER.info("Response Code: "+HttpStatus.CREATED+", Response Body: "+response.toString()+", Headers: "+headers);
 		return new ResponseEntity<>(response, headers, HttpStatus.CREATED);
 	}
 
