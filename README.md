@@ -7,7 +7,7 @@
 - [x] ~~Dockerfile creation.~~
 - [ ] Terraform files for Infrastructure.
 - [ ] Ansible playbook for configuration.
-- [ ] Docker-compose for easy deployment on local to test including database.
+- [x] ~~Docker-compose for easy deployment on local to test including database.~~
 - [ ] Kubernetes Helm chart for the easy deployment.
 - [ ] Configure central logging using ELK.
 - [ ] Kubernetes Side car configuration with FileBeat to get the logs and dashboard creation.
