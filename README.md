@@ -1,3 +1,31 @@
+# DevOps Task List
+## CICD and Configuration
+- [ ] Create two branch - Dev(Staging) and Master(Production).
+- [ ] Surefire Integration for HTML test reports.
+- [ ] Make logging in a file and console both, Set logging level in environment variable for better control.
+- [ ] Make every configuration environment variable for better control.
+- [ ] Dockerfile creation.
+- [ ] Terraform files for Infrastructure.
+- [ ] Ansible playbook for configuration.
+- [ ] Docker-compose for easy deployment on local to test including database.
+- [ ] Kubernetes Helm chart for the easy deployment.
+- [ ] Configure central logging using ELK.
+- [ ] Kubernetes Side car configuration with FileBeat to get the logs and dashboard creation.
+
+- [ ] Jenkins pipeline (CICD) - Staging (Dev branch) and Production (Master branch).
+	- [ ] Code pull.
+	- [ ] Check code coverage with Sonar.
+	- [ ] Test the code and create a url with report html and log it.
+	- [ ] Create a Docker image push it to Dockerhub/AWS ECR.
+	- [ ] Deployment on Kubernetes cluster (Use deployment strategies).
+
+- [ ] Load Balancer configuration HAProxy (On Prem)/ELB (AWS).
+- [ ] Generate URL for swagger-ui to for the manual testing and check the usage.
+
+## Infrastructure Provisioning
+- [ ] Jenkins pipeline to create AWS Infra with Terraform and configuration using Ansible Playbook.
+- [ ] Easy Deploy, Easy Destroy.
+
 # travels-java-api
 
 [![Build Status](https://travis-ci.org/mariazevedo88/travels-java-api.svg?branch=master)](https://travis-ci.org/mariazevedo88/travels-java-api) ![GitHub forks](https://img.shields.io/github/forks/mariazevedo88/travels-java-api?style=social) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/mariazevedo88/travels-java-api) ![GitHub language count](https://img.shields.io/github/languages/count/mariazevedo88/travels-java-api) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mariazevedo88/travels-java-api) ![GitHub repo size](https://img.shields.io/github/repo-size/mariazevedo88/travels-java-api) ![GitHub last commit](https://img.shields.io/github/last-commit/mariazevedo88/travels-java-api) ![GitHub](https://img.shields.io/github/license/mariazevedo88/travels-java-api)
