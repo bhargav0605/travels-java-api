@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14.10
+    ports:
+    - 5431:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root#40
+    volumes:
+    - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "postgres" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - 8080:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      LOG_LEVEL: INFO
+      DATABASE_PASSWORD: root#40
+      DATABASE_URL: jdbc:postgresql://postgres:5432/postgres
+      DATABASE_USERNAME: postgres
+      JWT_EXPIRATION: 3600
+      JWT_SECRET: qweernadnamdn19820918209!#ajhad
+      SERVER_COMPRESSION: "true"
+      MIN_RESPONSE_SIZE: 2048
+      API_KEY: FX001-FREE
