@@ -3,7 +3,7 @@
 - [ ] Create two branch - Dev(Staging) and Master(Production).
 - [x] ~~Surefire Integration for HTML test reports.~~
 - [x] ~~Make logging in a file and console both, Set logging level in environment variable for better control.~~
-- [ ] Make every configuration environment variable for better control.
+- [x] ~~Make every configuration environment variable for better control.~~
 - [x] ~~Dockerfile creation.~~
 - [ ] Terraform files for Infrastructure.
 - [ ] Ansible playbook for configuration.
