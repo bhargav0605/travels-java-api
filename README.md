@@ -1,29 +1,36 @@
 # DevOps Task List
 ## CICD and Configuration
-- [ ] Create two branch - Dev(Staging) and Master(Production).
+- [x] ~~Create two branch - Dev(Staging) and Master(Production).~~
 - [x] ~~Surefire Integration for HTML test reports.~~
 - [x] ~~Make logging in a file and console both, Set logging level in environment variable for better control.~~
 - [x] ~~Make every configuration environment variable for better control.~~
 - [x] ~~Dockerfile creation.~~
-- [ ] Terraform files for Infrastructure.
-- [ ] Ansible playbook for configuration.
-- [ ] Docker-compose for easy deployment on local to test including database.
+- [ ] Terraform files for Infrastructure (Staging).
+- [ ] Ansible playbook for configuration management(Staging).
+- [x] ~~Docker-compose for easy deployment on local to test including database.~~
 - [ ] Kubernetes Helm chart for the easy deployment.
 - [ ] Configure central logging using ELK.
 - [ ] Kubernetes Side car configuration with FileBeat to get the logs and dashboard creation.
+- [ ] Terraform files for Infrastructure (Production - On Prem kind of usig only EC2).
+- [ ] Ansible playbook for configuration management(Production - On Prem kind of usig only EC2).
+- [ ] Terraform files for Infrastructure (Production - Only AWS Architecture).
+- [ ] Ansible playbook for configuration management(Production - Only AWS Architecture).
+- [ ] Setup JFrog Artifactory to secure jar dependencies and use it in project instead of central maven repository.
 
 - [ ] Jenkins pipeline (CICD) - Staging (Dev branch) and Production (Master branch).
 	- [ ] Code pull.
 	- [ ] Check code coverage with Sonar.
 	- [ ] Test the code and create a url with report html and log it.
 	- [ ] Create a Docker image push it to Dockerhub/AWS ECR.
-	- [ ] Deployment on Kubernetes cluster (Use deployment strategies).
+	- [ ] Docker image scanning for vulnerability. (Image Security)
+	- [ ] Deployment on Kubernetes cluster using ArgoCD (Use deployment strategies).
+	- [ ] Deployment using docker compose.
 
 - [ ] Load Balancer configuration HAProxy (On Prem)/ELB (AWS).
 - [ ] Generate URL for swagger-ui to for the manual testing and check the usage.
 
 ## Infrastructure Provisioning
-- [ ] Jenkins pipeline to create AWS Infra with Terraform and configuration using Ansible Playbook.
+- [ ] Jenkins/Bit-Bucket pipeline to create AWS Infra with Terraform and configuration using Ansible Playbook.
 - [ ] Easy Deploy, Easy Destroy.
 
 # travels-java-api
