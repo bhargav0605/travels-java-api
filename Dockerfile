@@ -1,3 +1,4 @@
+#master
 FROM maven:3.8.8-eclipse-temurin-11  as prep
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 WORKDIR /opt/app
