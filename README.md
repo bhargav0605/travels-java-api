@@ -18,10 +18,10 @@
 - [ ] Setup JFrog Artifactory to secure jar dependencies and use it in project instead of central maven repository.
 
 - [ ] Jenkins pipeline (CICD) - Staging (Dev branch) and Production (Master branch).
-	- [ ] Code pull.
+	- [x] Code pull.
 	- [ ] Check code coverage with Sonar.
 	- [ ] Test the code and create a url with report html and log it.
-	- [ ] Create a Docker image push it to Dockerhub/AWS ECR.
+	- [x] Create a Docker image push it to Dockerhub/AWS ECR.
 	- [ ] Docker image scanning for vulnerability. (Image Security)
 	- [ ] Deployment on Kubernetes cluster using ArgoCD (Use deployment strategies).
 	- [ ] Deployment using docker compose.
