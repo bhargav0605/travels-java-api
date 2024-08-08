@@ -1,0 +1,39 @@
+name: Test Logging Workflow
+
+# Trigger the workflow on push or pull request events
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Log a message
+        run: echo "This is a test log message!"
+
+      - name: Log environment variables
+        run: |
+          echo "GITHUB_SHA: $GITHUB_SHA"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+
+      - name: Log current directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "List of files:"
+          ls -al
+
+      - name: Log system info
+        run: |
+          echo "Operating System: $(uname -a)"
+          echo "Date: $(date)"
