@@ -1,4 +1,4 @@
-name: Test Logging Workflow
+name: CI
 
 on:
   workflow_dispatch: 
@@ -8,34 +8,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Log system info
+        run: |
+          echo "Operating System: $(uname -a)"
+          echo "Date: $(date)"
+          
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y%m%d')"
 
       - name: Check out code
         uses: actions/checkout@v4
-
-      - name: Log a message
-        run: echo "This is a test log message!"
-
-      - name: Log environment variables
-        run: |
-          echo "GITHUB_SHA: $GITHUB_SHA"
-          echo "GITHUB_REF: $GITHUB_REF"
-          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
-
-      - name: Log current directory
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "List of files:"
-          ls -al
-
-      - name: Log system info
-        run: |
-          echo "Operating System: $(uname -a)"
-          echo "Date: $(date)"
-
+      
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -47,6 +31,19 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # - name: Log environment variables
+      #   run: |
+      #     echo "GITHUB_SHA: $GITHUB_SHA"
+      #     echo "GITHUB_REF: $GITHUB_REF"
+      #     echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+
+      - name: Log current directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "List of files:"
+          ls -al
       
       - name: Build and push
         uses: docker/build-push-action@v6
